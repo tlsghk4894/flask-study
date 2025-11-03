@@ -1,20 +1,28 @@
-apikey='U+FQCt+nIIQxSTHrl0ZeNwe5+tCOfA1WLqpy4mQA+VQ89XAT9kprS78B1D0sRgxBxVL7dp1l8xtT5dIqc9HALw=='
-
-import requests 
-import pandas as pd
+import requests
+# from bs4 import BeautifulSoup as bs
 import json
-url = 'https://api.odcloud.kr/api/15088856/v1/uddi:f88e5a0d-52e2-4fdf-badc-dd0eb3127aeb'
-params ={'serviceKey' : apikey, '선별' : '분당선'}
+import pandas as pd
 
-response = requests.get(url, params=params)
-print(response.content.decode('utf-8'))
+serviceKey=''
+rType='json'
+num='32'
+url='https://api.odcloud.kr/api/15088856/v1/uddi:f88e5a0d-52e2-4fdf-badc-dd0eb3127aeb?page=1&perPage=10&serviceKey='+serviceKey+'&pageNo=1&numOfRows='+num+'&resultType='+rType
 
-dict = json.loads(response.text)
+res=requests.get(url).text
+data=json.loads(res)
+# print(data)
+subways=data["data"]
+subway_list=[]
+i=0
+for subway in subways:
+    type_of_track=subway["선별"]
+    peak=subway["첨두"]
+    best_peak=subway["최고"]
+    most_crowded=subway["최대 혼잡구간"]
+    subway_list.append(tuple([type_of_track,peak,best_peak,most_crowded]))
+    i+=1
 
-#데이터 프레임만 선택하여 doc 객체에 저장
-doc = dict["data"]
-
-# 데이터 프레임으로 변환
-data = pd.DataFrame(doc)
-
-print(data.head())
+# print(subway_list)
+df=pd.DataFrame(subway_list,columns=['type_of_track','peak','best_peak','most_crowded'])
+print(df)
+# print(subway_list)

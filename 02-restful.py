@@ -2,49 +2,49 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-# @app.route("/parameter", methods=['GET'])
-# def get():
-#     #URL에 포함된 변수 추출
-#     my_num1 = request.args.get('num1')
-#     my_num2 = request.args.get('num2')
+@app.route("/parameter", methods=['GET'])
+def get():
+    #URL에 포함된 변수 추출
+    my_num1 = request.args.get('num1')
+    my_num2 = request.args.get('num2')
 
-#     #클라이언트로부터 받은 파라미터는 문자열임
-#     sum1 = my_num1 + my_num2
+    #클라이언트로부터 받은 파라미터는 문자열임
+    sum1 = my_num1 + my_num2
 
-#     sum2 = int(my_num1) + int(my_num2)
+    sum2 = int(my_num1) + int(my_num2)
 
-#     mydict = {
-#         "expr": "%s + %s" %(my_num1, my_num2),
-#         "sum1": sum1,
-#         "sum2": sum2
-#     }
-#     return mydict
+    mydict = {
+        "expr": "%s + %s" %(my_num1, my_num2),
+        "sum1": sum1,
+        "sum2": sum2
+    }
+    return mydict
 
-# @app.route("/parameter", methods=['GET','POST'])
-# def post():
-#     x = request.form.get("x")
-#     y = request.form.get("y")
+@app.route("/parameter", methods=['POST'])
+def post():
+    x = request.form.get("x")
+    y = request.form.get("y")
 
-#     z = int(x) * int(y)
+    z = int(x) * int(y)
 
-#     return {
-#         "expr": "%s * %s" % (x,y),
-#         "z": z
-#    }
+    return {
+        "expr": "%s * %s" % (x,y),
+        "z": z
+   }
 
-# @app.route("/parameter", methods=['GET','PUT'])
-# def post():
-#     a = request.form.get("a")
-#     b = request.form.get("b")
+@app.route("/parameter", methods=['PUT'])
+def post():
+    a = request.form.get("a")
+    b = request.form.get("b")
 
-#     c = int(a) - int(b)
+    c = int(a) - int(b)
 
-#     return {
-#         "expr": "%s - %s" % (a,b),
-#         "c": c
-#     }
+    return {
+        "expr": "%s - %s" % (a,b),
+        "c": c
+    }
 
-@app.route("/parameter", methods=['GET','DELETE'])
+@app.route("/parameter", methods=['DELETE'])
 def post():
     m = request.form.get("m")
     n = request.form.get("n")
