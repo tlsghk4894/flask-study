@@ -56,7 +56,13 @@ def post():
         "o": o
     }
 
+@app.route("/parameter/<myname>/<myage>", methods=['GET'])
+def path_params(myname,myage):
+    msg = "안녕하세요 {name}님. 당신은 {age}세 입니다."
 
+    return {
+        "msg": msg.format(name=myname, age=myage)
+    }
 
 @app.errorhandler(Exception)
 def error_handling(error):
