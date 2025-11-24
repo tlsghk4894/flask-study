@@ -1,0 +1,71 @@
+파일 - 기본 설정 - 코드 조각 구성 - 'python' 입력 후 엔터 - python.json 파일에서 스니펫 처리
+- https://snippet-generator.app 사이트에서 자기 코드 스니펫 처리 후 붙여넣기 - 여러 개 입력 시 {}, 콤마로 구분
+
+예시 
+{
+	"실습용 데이터 가져오기": {
+		
+		"prefix": "my_load_data",
+		"body": [
+			"from hossam import load_data",
+			"origin = load_data(\"$1\")",
+			"origin.head()"
+		],
+		"description": "실습용 데이터 가져오기"
+	},
+	"데이터 시각화 초기화": {
+		"prefix": "my_plot_init",
+		"body": [
+			"from matplotlib import pyplot as plt ",
+			"import seaborn as sb",
+			"import matplotlib.font_manager as fm",
+			"",
+			"my_dpi = 200",
+			"font_path = \"./NotoSansKR-Regular.ttf\"",
+			"fm.fontManager.addfont(font_path)",
+			"font_prop = fm.FontProperties(fname=font_path)",
+			"font_name = font_prop.get_name()",
+			"my_font_name = \"Noto Sans KR\"",
+			"my_theme = \"dark\"",
+			"",
+			"sb.set_theme(style=my_theme)",
+			"plt.rcParams['font.family'] = my_font_name",
+			"plt.rcParams['font.size'] = 10",
+			"plt.rcParams['axes.unicode_minus'] = False"
+		],
+		"description": "데이터 시각화 초기화"
+	},
+	"그래프 그리기": {
+		"prefix": "my_line_plot",
+		"body": [
+			"# 1) 그래프 초기화 (캔버스(fig)와 도화지(ax) 준비하기)",
+			"width_px = 1280             #그래프 가로 크기",
+			"height_px = 720             #그래프 세로 크기",
+			"rows = 1                    #도화지의 행 수",
+			"cols = 1                    #도화지의 열 수",
+			"figsize = (width_px / my_dpi, height_px / my_dpi)",
+			"fig, ax = plt.subplots(rows, cols, figsize = figsize, dpi = my_dpi)",
+			"",
+			"# 2) 그래프 그리기 -> seaborn 사용",
+			"# sb.boxplot(data=df1, orient='h')",
+			"sb.lineplot(data=$1😊, x=😊, y='😊', hue='😊',",
+			"            color=\"😊\", linewidth=0.7, linestyle=':', marker=\"o\", markersize=20,",
+			"            markerfacecolor=\"#00ff00\", markeredgecolor=\"#ff0000\", markeredgewidth=2,)",
+			"",
+			"# 3) 그래프 꾸미기 -> 도화지(ax)에 직접 적용",
+			"ax.grid(True)",
+			"ax.set_title(\"😊\", color=\"😊\",fontsize=12, pad=8)",
+			"ax.set_xlabel(\"😊\",color=\"😊\" ,fontsize=8, labelpad=5)",
+			"ax.set_ylabel(\"😊\", color=\"😊\",fontsize=8, labelpad=5)",
+			"ax.set_xlim([😊, 😊])",
+			"ax.set_ylim([😊, 😊])",
+			"",
+			"# 4) 출력",
+			"plt.tight_layout()                      #여백 제거",
+			"# plt.savefig(\"myplot.png\", dpi=my_dpi)   #생략 가능",
+			"plt.show()                              #그래프 화면 출력",
+			"plt.close()                             #그래프 작업 종료"
+		],
+		"description": "그래프 그리기"
+	}
+}
