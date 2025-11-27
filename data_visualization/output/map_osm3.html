@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e58ad6e97203cf3c63231a128640c1b3 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_e58ad6e97203cf3c63231a128640c1b3" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e58ad6e97203cf3c63231a128640c1b3 = L.map(
+                "map_e58ad6e97203cf3c63231a128640c1b3",
+                {
+                    center: [37.4935982, 127.0327129],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 17,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_c92e846934c5a4d58d10361c66712908 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_c92e846934c5a4d58d10361c66712908.addTo(map_e58ad6e97203cf3c63231a128640c1b3);
+        
+    
+            var marker_e456293371ed0ef6cf9fe610d7ef25b9 = L.marker(
+                [37.4935982, 127.0327129],
+                {
+}
+            ).addTo(map_e58ad6e97203cf3c63231a128640c1b3);
+        
+    
+        var icon_ecc1cf573e704411f91e7046c60aa922 = L.icon({
+  "iconUrl": "https://data.hossam.kr/favicon.png",
+  "iconSize": [50, 50],
+});
+        
+    
+        var popup_4c548cf12c122e7bbbd2478a6bba1086 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9386e3b984a5e530d961350b64441af2 = $(`<div id="html_9386e3b984a5e530d961350b64441af2" style="width: 100.0%; height: 100.0%;"><div style='white-space: nowrap'><h3>아이티윌 교육센터</h3><img src='https://www.itwill.co.kr/css/wvtex/img/wvUser/logo.png' width='100%'><br/><p>tel: <a href='tel:02-6255-8002'>02-6255-8002</a></p><p>서울특별시 강남구 역삼로 120 2층 (역삼동, 성보역삼빌딩)</p></div></div>`)[0];
+                popup_4c548cf12c122e7bbbd2478a6bba1086.setContent(html_9386e3b984a5e530d961350b64441af2);
+            
+        
+
+        marker_e456293371ed0ef6cf9fe610d7ef25b9.bindPopup(popup_4c548cf12c122e7bbbd2478a6bba1086)
+        ;
+
+        
+    
+    
+                marker_e456293371ed0ef6cf9fe610d7ef25b9.setIcon(icon_ecc1cf573e704411f91e7046c60aa922);
+            
+</script>
+</html>
